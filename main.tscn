@@ -1,0 +1,170 @@
+[gd_scene load_steps=12 format=3 uid="uid://cbiqm1db0q41y"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_crbqe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bl503"]
+bg_color = Color(0.203922, 0.207843, 0.254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ffyw"]
+bg_color = Color(0.448067, 0.448067, 0.448067, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_865nw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxw3b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bp4v6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kkrrw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqrlh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bi7wh"]
+
+[sub_resource type="Theme" id="Theme_ub862"]
+LineEdit/font_sizes/font_size = 40
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_kkrrw")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_jqrlh")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_bi7wh")
+
+[sub_resource type="ImageTexture" id="ImageTexture_i0jfe"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_crbqe")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bl503")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="secretkeybox" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ffyw")
+
+[node name="secretkey_input" type="LineEdit" parent="Panel/VBoxContainer/HBoxContainer/secretkeybox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_865nw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxw3b")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_bp4v6")
+placeholder_text = "Enter your API key"
+secret = true
+
+[node name="secretkeybox2" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ffyw")
+
+[node name="SpinBox" type="SpinBox" parent="Panel/VBoxContainer/HBoxContainer/secretkeybox2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.997245, 0.99535)
+tooltip_text = "temperature
+range (0-1)"
+theme = SubResource("Theme_ub862")
+theme_override_icons/updown = SubResource("ImageTexture_i0jfe")
+max_value = 1.0
+step = 0.1
+value = 0.4
+
+[node name="chatbox" type="Panel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ffyw")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer/chatbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+
+[node name="ItemList" type="VBoxContainer" parent="Panel/VBoxContainer/chatbox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 3
+
+[node name="chatinputbox" type="Panel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ffyw")
+
+[node name="chat_input" type="LineEdit" parent="Panel/VBoxContainer/chatinputbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_865nw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxw3b")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_bp4v6")
+placeholder_text = "Enter message"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="text_changed" from="Panel/VBoxContainer/HBoxContainer/secretkeybox/secretkey_input" to="." method="_on_secretkey_input_text_changed"]
+[connection signal="text_submitted" from="Panel/VBoxContainer/chatinputbox/chat_input" to="." method="_on_chat_input_text_submitted"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
