@@ -1,6 +1,8 @@
 # Godot4-ChatGPT_API_Playground
  Chat GPT integration to godot
 
+test it out here: https://technolukas.github.io/Godot4-ChatGPT_API_Playground-webapp/  (itch.io doesn't support clipboard)
+
 ### Usage (You must use hotkeys to copy and paste)
 - Generate Chat GPT API key (secret key) on https://platform.openai.com/api-keys
 - Use CTRL+C to copy key
