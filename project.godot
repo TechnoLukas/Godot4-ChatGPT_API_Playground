@@ -18,3 +18,7 @@ config/icon="res://icon.svg"
 [display]
 
 window/stretch/aspect="ignore"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/coi_serviceworker/plugin.cfg")

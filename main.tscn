@@ -16,13 +16,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_865nw"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxw3b"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bp4v6"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kkrrw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqrlh"]
@@ -34,6 +27,14 @@ LineEdit/font_sizes/font_size = 40
 LineEdit/styles/focus = SubResource("StyleBoxEmpty_kkrrw")
 LineEdit/styles/normal = SubResource("StyleBoxEmpty_jqrlh")
 LineEdit/styles/read_only = SubResource("StyleBoxEmpty_bi7wh")
+TooltipLabel/font_sizes/font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_865nw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxw3b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bp4v6"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_i0jfe"]
 
@@ -86,12 +87,14 @@ offset_left = 10.0
 offset_right = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+tooltip_text = "API key"
+theme = SubResource("Theme_ub862")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_865nw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mxw3b")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_bp4v6")
-placeholder_text = "Enter your API key"
+placeholder_text = "Enter your API key ONLY BY CTRL+C & CTRL+V"
 secret = true
 
 [node name="secretkeybox2" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
@@ -111,7 +114,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.997245, 0.99535)
 tooltip_text = "temperature
-range (0-1)"
+range (0 to 1)"
 theme = SubResource("Theme_ub862")
 theme_override_icons/updown = SubResource("ImageTexture_i0jfe")
 max_value = 1.0
@@ -166,5 +169,6 @@ placeholder_text = "Enter message"
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [connection signal="text_changed" from="Panel/VBoxContainer/HBoxContainer/secretkeybox/secretkey_input" to="." method="_on_secretkey_input_text_changed"]
+[connection signal="gui_input" from="Panel/VBoxContainer/chatinputbox/chat_input" to="." method="_on_chat_input_gui_input"]
 [connection signal="text_submitted" from="Panel/VBoxContainer/chatinputbox/chat_input" to="." method="_on_chat_input_text_submitted"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

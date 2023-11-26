@@ -30,14 +30,12 @@ func _process(delta):
 	pass
 	#scroll.scroll_vertical=scrollbar.max_value
 
-
 func _on_line_edit_text_submitted(new_text):
 	var message = preload("res://message.tscn").instantiate()
 	message.text="> "+new_text
 	messagespace.add_child(message)
 	lineedit_value.text=""
 	GPT_send_prompt(new_text)
-	
 
 func GPT_send_prompt(prompt):
 	messages.append({"role": "user", "content": prompt})
@@ -89,3 +87,6 @@ func _on_chat_input_text_submitted(new_text):
 
 func _on_secretkey_input_text_changed(new_text):
 	api_key=new_text
+
+
+
