@@ -29,14 +29,14 @@ LineEdit/styles/normal = SubResource("StyleBoxEmpty_jqrlh")
 LineEdit/styles/read_only = SubResource("StyleBoxEmpty_bi7wh")
 TooltipLabel/font_sizes/font_size = 30
 
+[sub_resource type="ImageTexture" id="ImageTexture_i0jfe"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_865nw"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxw3b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bp4v6"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_i0jfe"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -72,6 +72,30 @@ theme_override_constants/separation = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 
+[node name="secretkeybox2" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ffyw")
+
+[node name="SpinBox" type="SpinBox" parent="Panel/VBoxContainer/HBoxContainer/secretkeybox2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.997245, 0.99535)
+tooltip_text = "temperature
+range (0 to 1)"
+theme = SubResource("Theme_ub862")
+theme_override_icons/updown = SubResource("ImageTexture_i0jfe")
+max_value = 1.0
+step = 0.1
+value = 0.4
+
 [node name="secretkeybox" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
@@ -96,30 +120,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_mxw3b")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_bp4v6")
 placeholder_text = "Enter your API key ONLY BY CTRL+C & CTRL+V"
 secret = true
-
-[node name="secretkeybox2" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5ffyw")
-
-[node name="SpinBox" type="SpinBox" parent="Panel/VBoxContainer/HBoxContainer/secretkeybox2"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 90.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.997245, 0.99535)
-tooltip_text = "temperature
-range (0 to 1)"
-theme = SubResource("Theme_ub862")
-theme_override_icons/updown = SubResource("ImageTexture_i0jfe")
-max_value = 1.0
-step = 0.1
-value = 0.4
 
 [node name="chatbox" type="Panel" parent="Panel/VBoxContainer"]
 layout_mode = 2
